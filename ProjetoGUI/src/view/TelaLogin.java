@@ -50,6 +50,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+        });
 
         jButton2.setMnemonic('C');
         jButton2.setText("Cancelar");
@@ -106,8 +111,25 @@ public class TelaLogin extends javax.swing.JFrame {
             tela.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Senha ou usuário inválido!!");
+            jTxtLogin.setText("");
+            jTxtSenha.setText(null);
+            jTxtLogin.requestFocus();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        // TODO add your handling code here:
+        String senha = String.valueOf(jTxtSenha.getPassword());
+        if(jTxtLogin.getText().equals("java") && senha.equals("java") ){
+            dispose();
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Senha ou usuário inválido!!");
+            jTxtLogin.setText("");
+            jTxtSenha.setText(null);
+            jTxtLogin.requestFocus();
+    }//GEN-LAST:event_jButton1KeyPressed
 
     /**
      * @param args the command line arguments
